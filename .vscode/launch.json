@@ -10,7 +10,7 @@
       "type": "dart",
       "flutterMode": "debug",
       "program": "lib/main_dev.dart",
-      "args": ["--flavor", "dev"]
+      "args": ["--flavor", "dev", "--target", "lib/main_dev.dart"]
     },
     {
       "name": "DayPilot PROD",
@@ -18,7 +18,7 @@
       "type": "dart",
       "flutterMode": "debug",
       "program": "lib/main_prod.dart",
-      "args": ["--flavor", "prod"]
+      "args": ["--flavor", "prod", "--target", "lib/main_prod.dart"]
     },
     {
       "name": "DayPilot (profile mode)",
@@ -26,7 +26,7 @@
       "type": "dart",
       "flutterMode": "profile",
       "program": "lib/main_dev.dart",
-      "args": ["--flavor", "dev"]
+      "args": ["--flavor", "dev", "--target", "lib/main_dev.dart"]
     }
   ]
 }
