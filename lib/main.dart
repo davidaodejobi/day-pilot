@@ -1,73 +1,81 @@
+import 'package:day_pilot/flavor_banner.dart';
 import 'package:day_pilot/flavor_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
-void main() {
-  FlavorConfig.appFlavor = Flavor.production;
-  runApp(const MyApp());
+void mainCommon() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(const DayPilot());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DayPilot extends StatelessWidget {
+  const DayPilot({super.key});
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: FlavorConfig.instance!.name,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(
+        title: FlavorConfig.instance!.name,
+      ),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  @override
+  void initState() {
+    getInfo();
+    super.initState();
+  }
 
-  void _incrementCounter() {
+  String appName = "";
+  String packageName = "";
+  String version = "";
+  String buildNumber = "";
+
+  void getInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+
     setState(() {
-      _counter++;
+      appName = packageInfo.appName;
+      packageName = packageInfo.packageName;
+      version = packageInfo.version;
+      buildNumber = packageInfo.buildNumber;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SvgPicture.asset(
-              'assets/svgs/filter.svg',
-            ),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    return FlavorBanner(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(widget.title),
         ),
+        body: Center(
+            child: Column(
+          children: [
+            Text("App Name: $appName"),
+            Text("packageName: $packageName"),
+            Text("version: $version"),
+            Text("buildNumber: $buildNumber"),
+          ],
+        )), // This trailing comma makes auto-formatting nicer for build methods.
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -47,7 +47,7 @@ android {
         applicationId "io.plan.day_pilot"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -80,13 +80,11 @@ android {
         dimension "app"
         applicationIdSuffix ".dev"
         versionNameSuffix "-dev"
-        resValue "string", "app_name", "MyApp Dev"
-        buildConfigField "String", "API_URL", "\"https://api.dev.example.com\""
+        resValue "string", "app_name", "Day Pilot Dev"
     }
     prod {
         dimension "app"
-        resValue "string", "app_name", "MyApp"
-        buildConfigField "String", "API_URL", "\"https://api.example.com\""
+        resValue "string", "app_name", "Day Pilot"
     }
 }
 }
