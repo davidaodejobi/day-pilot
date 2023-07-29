@@ -1,5 +1,9 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:day_pilot/src/features/onboarding/onboard_button.dart';
+import 'package:day_pilot/src/features/onboarding/onboard_card.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -9,23 +13,41 @@ class OnbaordingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: RadialGradient(
+            center: Alignment.topLeft,
+            colors: [
+              const Color.fromARGB(255, 112, 167, 195)
+                  .withOpacity(.2)
+                  .withAlpha(100),
+              const Color.fromARGB(255, 138, 169, 185)
+                  .withOpacity(.2)
+                  .withAlpha(100),
+              AppColors.scaffoldBackgroundColor,
+            ],
+            radius: 1.5,
+          ),
+        ),
         child: Column(
           children: [
-            Container(
-              height: .4.sh,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(24.r),
-                gradient: const LinearGradient(
-                  begin: Alignment(0.72, -0.69),
-                  end: Alignment(-0.72, 0.69),
-                  colors: [Color(0xFF008FD5), Color(0xFF020066)],
+            .05.sh.hi,
+            Padding(
+              padding: EdgeInsets.all(10.0.w),
+              child: const FlipCard(
+                autoFlipDuration: Duration(seconds: 3),
+                fill: Fill.fillBack,
+                direction: FlipDirection.HORIZONTAL,
+                side: CardSide.FRONT,
+                front: OnboardCard(
+                  imagePath: '1',
+                  isFront: true,
+                ),
+                back: OnboardCard(
+                  imagePath: '2',
+                  isFront: false,
                 ),
               ),
-            ).padSymmetric(
-              horizontal: 10,
-              vertical: 10,
             ),
             .1.sh.hi,
             SizedBox(
