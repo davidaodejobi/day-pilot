@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 void mainCommon() {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
   // turn off the # in the URLs on the web
   // usePathUrlStrategy();
   registerErrorHandlers();
