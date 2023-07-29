@@ -76,15 +76,16 @@ android {
 
     flavorDimensions "app"
     productFlavors {
+    prod {
+        dimension "app"
+        resValue "string", "app_name", "Day Pilot"
+        applicationIdSuffix ""
+    }
     dev {
         dimension "app"
         applicationIdSuffix ".dev"
         versionNameSuffix "-dev"
         resValue "string", "app_name", "Day Pilot Dev"
-    }
-    prod {
-        dimension "app"
-        resValue "string", "app_name", "Day Pilot"
     }
 }
 }

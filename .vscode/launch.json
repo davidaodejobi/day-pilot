@@ -1,7 +1,4 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
     {
@@ -13,20 +10,23 @@
       "args": ["--flavor", "dev", "--target", "lib/main_dev.dart"]
     },
     {
+      "name": "DayPilot DEV (No Debug)",
+      "request": "launch",
+      "type": "dart",
+      "noDebug": true,
+      "flutterMode": "debug",
+      "program": "lib/main_dev.dart",
+      "args": ["--flavor", "dev", "--target", "lib/main_dev.dart"]
+    },
+    {
       "name": "DayPilot PROD",
       "request": "launch",
       "type": "dart",
       "flutterMode": "debug",
       "program": "lib/main_prod.dart",
       "args": ["--flavor", "prod", "--target", "lib/main_prod.dart"]
-    },
-    {
-      "name": "DayPilot (profile mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile",
-      "program": "lib/main_dev.dart",
-      "args": ["--flavor", "dev", "--target", "lib/main_dev.dart"]
     }
   ]
 }
+
+// flutter build apk --flavor prod -t lib/main_prod.dart

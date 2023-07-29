@@ -7,8 +7,6 @@ void main() {
     env: "DEV",
     name: "DayPilot [DEV]",
     values: FlavorValues(
-      bundleID: '',
-      appID: 'io.plan.day_pilot.dev',
       baseUrl: '',
     ),
   );

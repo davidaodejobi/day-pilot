@@ -21,9 +21,8 @@ class FlavorBanner extends StatelessWidget {
   BannerConfig _getDefaultBanner() {
     return BannerConfig(
       bannerName: FlavorConfig.instance!.env.toString(),
-      bannerColor: !FlavorConfig.isDevelopment()
-          ? Colors.green
-          : const Color(0xffFFDE00),
+      bannerColor:
+          !FlavorConfig.isDevelopment() ? Colors.amber : Colors.transparent,
     );
   }
 

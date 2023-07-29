@@ -4,13 +4,9 @@ enum Flavor {
 }
 
 class FlavorValues {
-  final String? bundleID;
-  final String? appID;
   final String? baseUrl;
 
   FlavorValues({
-    this.bundleID,
-    this.appID,
     this.baseUrl,
   });
 }
