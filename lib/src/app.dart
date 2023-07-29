@@ -12,7 +12,7 @@ class AppMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: FlavorConfig.instance!.name,
+      title: FlavorConfig.instance?.name ?? '',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
