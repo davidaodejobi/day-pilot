@@ -1,4 +1,5 @@
 import 'package:day_pilot/flavor_config.dart';
+import 'package:day_pilot/src/constants/app_theme.dart';
 import 'package:day_pilot/src/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -19,10 +20,7 @@ class AppMaterialApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: FlavorConfig.instance?.name ?? '',
-          theme: ThemeData(
-            scaffoldBackgroundColor: const Color(0xFFF7F9F9),
-            primarySwatch: Colors.blue,
-          ),
+          theme: AppTheme.light(material3: true),
           localizationsDelegates: AppLocalizations.localizationsDelegates,
           supportedLocales: AppLocalizations.supportedLocales,
           // onGenerateTitle: (BuildContext context) =>

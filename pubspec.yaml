@@ -37,12 +37,27 @@ flutter:
   assets:
     - assets/svgs/
     - assets/images/
-  #   - images/a_dot_ham.jpeg
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
+    - assets/fonts/
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/static/Poppins-Regular.ttf
+        - asset: assets/fonts/static/Poppins-Black.ttf
+          weight: 900
+        - asset: assets/fonts/static/Poppins-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/static/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/static/Poppins-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/static/Poppins-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/static/Poppins-Medium.ttf
+          weight: 400
+        - asset: assets/fonts/static/Poppins-Light.ttf
+          weight: 300
+        - asset: assets/fonts/static/Poppins-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/static/Poppins-Thin.ttf
+          weight: 100

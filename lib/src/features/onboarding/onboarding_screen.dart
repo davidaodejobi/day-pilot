@@ -1,4 +1,4 @@
-import 'package:day_pilot/src/constants/app_colors.dart';
+import 'package:day_pilot/src/features/onboarding/onboard_button.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,9 +33,8 @@ class OnbaordingScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Track your daily tasks',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24.sp,
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                          fontWeight: FontWeight.w700,
                         ),
                   ),
                   20.hi,
@@ -51,87 +50,9 @@ class OnbaordingScreen extends StatelessWidget {
               ),
             ).padHorizontal(25),
             .1.sh.hi,
-            Container(
-              width: 311,
-              height: 50,
-              decoration: ShapeDecoration(
-                color: const Color(0xFFFAFAFA),
-                shape: RoundedRectangleBorder(
-                  side: const BorderSide(
-                    width: 1,
-                    strokeAlign: BorderSide.strokeAlignOutside,
-                    color: Colors.white,
-                  ),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.all(16),
-                      decoration: ShapeDecoration(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          side: const BorderSide(
-                              width: 0.50, color: Colors.white),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        shadows: const [
-                          BoxShadow(
-                            color: Color(0x26A6A6A6),
-                            blurRadius: 40,
-                            offset: Offset(50, 10),
-                            spreadRadius: 0,
-                          )
-                        ],
-                      ),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Login',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AppColors.textColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      padding: const EdgeInsets.all(16),
-                      child: const Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Register',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: AppColors.textColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+            const OnbaordButton(
+              onLoginPressed: null,
+              onSignUpPressed: null,
             )
           ],
         ),
