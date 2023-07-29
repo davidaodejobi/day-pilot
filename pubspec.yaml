@@ -19,6 +19,7 @@ dependencies:
   flutter_screenutil: ^5.8.4
   intl: ^0.18.0
   fvm: ^2.4.1
+  lottie: ^2.5.0
 
 dev_dependencies:
   flutter_test:
