@@ -1,17 +1,20 @@
-import 'package:day_pilot/flavor_banner.dart';
 import 'package:day_pilot/flavor_config.dart';
+import 'package:day_pilot/src/app.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 void mainCommon() {
   WidgetsFlutterBinding.ensureInitialized();
-
+  WidgetsFlutterBinding.ensureInitialized();
+  // turn off the # in the URLs on the web
+  // usePathUrlStrategy();
+  registerErrorHandlers();
   runApp(const DayPilot());
 }
 
 class DayPilot extends StatelessWidget {
   const DayPilot({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return FlavorConfig.isProduction()
@@ -25,36 +28,25 @@ class DayPilot extends StatelessWidget {
   }
 }
 
-class AppMaterialApp extends StatelessWidget {
-  const AppMaterialApp({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: FlavorConfig.instance!.name,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+void registerErrorHandlers() {
+  // * Show some error UI if any uncaught exception happens
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    debugPrint(details.toString());
+  };
+  // * Handle errors from the underlying platform/OS
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
+    debugPrint(error.toString());
+    return true;
+  };
+  // * Show some error UI when any widget in the app fails to build
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Text('An error occurred'),
       ),
-      home: const MyHomePage(),
+      body: Center(child: Text(details.toString())),
     );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return FlavorBanner(
-      child: Scaffold(
-        body: Center(
-            child: Column(
-          children: const [],
-        )), // This trailing comma makes auto-formatting nicer for build methods.
-      ),
-    );
-  }
+  };
 }
