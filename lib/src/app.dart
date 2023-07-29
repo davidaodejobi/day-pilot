@@ -1,7 +1,9 @@
 import 'package:day_pilot/flavor_config.dart';
-import 'package:day_pilot/l10n/app_localizations.dart.dart';
+import 'package:day_pilot/src/constants/app_theme.dart';
+import 'package:day_pilot/src/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppMaterialApp extends StatelessWidget {
   const AppMaterialApp({
@@ -10,37 +12,22 @@ class AppMaterialApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: FlavorConfig.instance!.name,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      // onGenerateTitle: (BuildContext context) =>
-      //     AppLocalizations.of(context)!.appTitle,
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          context.loc.appTitle,
-        ),
-      ),
-      body: Center(
-        child: Column(
-          children: const [],
-        ),
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: FlavorConfig.instance?.name ?? '',
+          theme: AppTheme.light(material3: true),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          // onGenerateTitle: (BuildContext context) =>
+          //     AppLocalizations.of(context)!.appTitle,
+          home: const OnbaordingScreen(),
+        );
+      },
     );
   }
 }

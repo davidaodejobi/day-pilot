@@ -18,12 +18,7 @@ class DayPilot extends StatelessWidget {
   Widget build(BuildContext context) {
     return FlavorConfig.isProduction()
         ? const AppMaterialApp()
-        : Banner(
-            location: BannerLocation.topEnd,
-            message: FlavorConfig.instance!.env.toString(),
-            color: Colors.amber,
-            child: const AppMaterialApp(),
-          );
+        : const AppMaterialApp();
   }
 }
 

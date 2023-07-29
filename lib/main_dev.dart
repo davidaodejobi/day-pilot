@@ -3,7 +3,7 @@ import 'package:day_pilot/main.dart';
 
 void main() {
   FlavorConfig(
-    flavor: Flavor.prod,
+    flavor: Flavor.dev,
     env: "DEV",
     name: "DayPilot [DEV]",
     values: FlavorValues(
