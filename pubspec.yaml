@@ -6,7 +6,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.19.4 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -16,16 +16,18 @@ dependencies:
   flutter_svg: ^2.0.2
   hooks_riverpod: ^2.3.7
   flutter_hooks: ^0.20.0
+  flutter_screenutil: ^5.8.4
+  intl: ^0.18.0
+  fvm: ^2.4.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  flutter_launcher_icons: ^0.13.1
-  flutter_native_splash: ^2.2.19
+  # flutter_launcher_icons: ^0.11.0
+  # flutter_native_splash: ^2.2.19
   flutter_lints: ^2.0.0
-  intl: ^0.17.0
 
 flutter:
   uses-material-design: true
@@ -35,7 +37,6 @@ flutter:
     - assets/svgs/
     - assets/images/
   #   - images/a_dot_ham.jpeg
-
   # example:
   # fonts:
   #   - family: Schyler
