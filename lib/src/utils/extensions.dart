@@ -66,6 +66,23 @@ extension PaddingExtension on Widget {
       child: this,
     );
   }
+
+  Widget padOnly({
+    double? left,
+    double? right,
+    double? top,
+    double? bottom,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: left?.w ?? 0,
+        right: right?.w ?? 0,
+        top: top?.h ?? 0,
+        bottom: bottom?.h ?? 0,
+      ),
+      child: this,
+    );
+  }
 }
 
 extension CustomSizedBox on num {
@@ -98,4 +115,13 @@ extension CustomSizedBox on num {
       height: height.toDouble().h,
     );
   }
+}
+
+extension FilePaths on String {
+  String get svg => 'assets/svgs/$this.svg';
+  String get png => 'assets/images/$this.png';
+  String get jpg => 'assets/images/$this.jpg';
+  String get jpeg => 'assets/images/$this.jpeg';
+  String get gif => 'assets/images/$this.gif';
+  String get webp => 'assets/lotties/$this.json';
 }
