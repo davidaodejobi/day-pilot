@@ -1,7 +1,9 @@
+import 'package:day_pilot/src/common_widgets/bottom_sheet.dart';
 import 'package:day_pilot/src/common_widgets/custom_elevated_button.dart';
 import 'package:day_pilot/src/common_widgets/custom_textfield.dart';
 import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:day_pilot/src/features/auth/forgot_password.dart';
+import 'package:day_pilot/src/features/auth/login/finger_print_body.dart';
 import 'package:day_pilot/src/features/auth/signup_screen.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,15 @@ class LoginScreen extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+
+    useEffect(() {
+      Future.delayed(const Duration(seconds: 2), () {
+        if (true) {
+          bottomSheet(context, child: const FingerPrintBody());
+        }
+      });
+      return null;
+    }, const []);
     return Scaffold(
       body: SafeArea(
         child: Column(

@@ -11,7 +11,8 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final int elevation;
   final int height;
-  final ButtonSize size;
+  final ButtonWidth size;
+  final bool hasBorderRadius;
   const CustomElevatedButton({
     Key? key,
     required this.text,
@@ -20,16 +21,17 @@ class CustomElevatedButton extends StatelessWidget {
     required this.onPressed,
     this.elevation = 0,
     this.height = 50,
-    this.size = ButtonSize.large,
+    this.size = ButtonWidth.large,
+    this.hasBorderRadius = true,
   }) : super(key: key);
 
-  buttonWidth(ButtonSize size) {
+  buttonWidth(ButtonWidth size) {
     switch (size) {
-      case ButtonSize.small:
+      case ButtonWidth.small:
         return .3.sw;
-      case ButtonSize.medium:
+      case ButtonWidth.medium:
         return .5.sw;
-      case ButtonSize.large:
+      case ButtonWidth.large:
       default:
         return double.infinity;
     }
@@ -48,7 +50,9 @@ class CustomElevatedButton extends StatelessWidget {
           foregroundColor: buttonColor ?? Colors.white,
           textStyle: Theme.of(context).textTheme.bodyLarge,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(
+              hasBorderRadius ? 8.r : 0,
+            ),
           ),
         ),
         child: Text(

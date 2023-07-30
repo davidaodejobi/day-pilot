@@ -76,7 +76,7 @@ class AppTheme with ChangeNotifier {
       ),
       scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       cardTheme: const CardTheme(
-        color: Color(0xFF75A0FF),
+        color: AppColors.scaffoldBackgroundColor,
       ),
       textTheme: _buildPoppinsTextTheme(),
     );

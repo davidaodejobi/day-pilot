@@ -21,7 +21,7 @@ class DayPilot extends StatelessWidget {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       // systemNavigationBarColor: Colors.blue, // navigation bar color
       statusBarColor:
-          AppColors.secondaryColor.withOpacity(0.4), // status bar color
+          AppColors.greyTextColor.withOpacity(0.4), // status bar color
     ));
     return FlavorConfig.isProduction()
         ? const AppMaterialApp()

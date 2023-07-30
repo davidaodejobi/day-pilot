@@ -1,5 +1,5 @@
 //create an enum
-enum ButtonSize {
+enum ButtonWidth {
   small,
   medium,
   large,
