@@ -1,6 +1,7 @@
 import 'package:day_pilot/src/common_widgets/custom_elevated_button.dart';
 import 'package:day_pilot/src/common_widgets/custom_textfield.dart';
 import 'package:day_pilot/src/constants/app_colors.dart';
+import 'package:day_pilot/src/features/auth/forgot_password.dart';
 import 'package:day_pilot/src/features/auth/signup_screen.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,12 @@ class LoginScreen extends HookConsumerWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const ForgotPassword(),
+                          ),
+                        ),
                         overlayColor: MaterialStateProperty.all(
                           Colors.transparent,
                         ),

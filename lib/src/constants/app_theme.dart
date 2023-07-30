@@ -36,6 +36,7 @@ class AppTheme with ChangeNotifier {
       titleLarge: TextStyle(
         fontSize: 18.0.sp,
         fontWeight: FontWeight.bold,
+        color: AppColors.textColor,
       ),
       bodyLarge: TextStyle(
         fontSize: 16.0.sp,

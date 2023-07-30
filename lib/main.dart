@@ -1,7 +1,9 @@
 import 'package:day_pilot/flavor_config.dart';
 import 'package:day_pilot/src/app.dart';
+import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void mainCommon() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,6 +18,11 @@ class DayPilot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      // systemNavigationBarColor: Colors.blue, // navigation bar color
+      statusBarColor:
+          AppColors.secondaryColor.withOpacity(0.4), // status bar color
+    ));
     return FlavorConfig.isProduction()
         ? const AppMaterialApp()
         : const AppMaterialApp();
