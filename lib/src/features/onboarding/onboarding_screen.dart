@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:day_pilot/src/constants/app_constants.dart';
 import 'package:day_pilot/src/features/auth/login_screen.dart';
+import 'package:day_pilot/src/features/auth/signup_screen.dart';
 import 'package:day_pilot/src/features/onboarding/onboard_button.dart';
 import 'package:day_pilot/src/features/onboarding/onboard_card.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
@@ -66,7 +67,12 @@ class OnbaordingScreen extends StatelessWidget {
                   builder: (context) => const LoginScreen(),
                 ),
               ),
-              onSignUpPressed: null,
+              onSignUpPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const SignUpScreen(),
+                ),
+              ),
             )
           ],
         ),

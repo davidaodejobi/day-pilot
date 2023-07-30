@@ -1,15 +1,15 @@
 import 'package:day_pilot/src/common_widgets/custom_elevated_button.dart';
 import 'package:day_pilot/src/common_widgets/custom_textfield.dart';
 import 'package:day_pilot/src/constants/app_colors.dart';
-import 'package:day_pilot/src/features/auth/signup_screen.dart';
+import 'package:day_pilot/src/features/auth/login_screen.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class LoginScreen extends HookConsumerWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends HookConsumerWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -26,7 +26,7 @@ class LoginScreen extends HookConsumerWidget {
                   children: [
                     40.hi,
                     Text(
-                      'Login',
+                      'Create Account',
                       style:
                           Theme.of(context).textTheme.headlineMedium!.copyWith(
                                 fontWeight: FontWeight.w700,
@@ -34,13 +34,18 @@ class LoginScreen extends HookConsumerWidget {
                     ),
                     16.hi,
                     Text(
-                      'Get right back into your account.',
+                      'Nulla consequat nunc augue blandit nunc, eu sollicitudin urna dolor sagittis lacus. Aenean ut eros et nisl sagittis vestibulum.',
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontWeight: FontWeight.w400,
                           ),
                     ),
                     40.hi,
+                    CustomTextField(
+                      controller: emailController,
+                      hintText: 'Full Name',
+                    ),
+                    16.hi,
                     CustomTextField(
                       controller: emailController,
                       hintText: 'Email address',
@@ -51,27 +56,15 @@ class LoginScreen extends HookConsumerWidget {
                       hintText: 'Password',
                       textObscured: true,
                     ),
-                    8.hi,
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: InkWell(
-                        onTap: () {},
-                        overlayColor: MaterialStateProperty.all(
-                          Colors.transparent,
-                        ),
-                        child: Text(
-                          'Forgot password?',
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ).padOnly(
-                          top: 8.h,
-                          bottom: 8.h,
-                          left: 8.w,
-                        ),
-                      ),
+                    16.hi,
+                    CustomTextField(
+                      controller: passwordController,
+                      hintText: 'Confirm Password',
+                      textObscured: true,
                     ),
                     32.hi,
                     CustomElevatedButton(
-                      text: 'Login',
+                      text: 'Sign Up',
                       onPressed: () {},
                     ),
                   ],
@@ -82,19 +75,16 @@ class LoginScreen extends HookConsumerWidget {
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const SignUpScreen(),
+                  builder: (context) => const LoginScreen(),
                 ),
-              ),
-              overlayColor: MaterialStateProperty.all(
-                Colors.transparent,
               ),
               child: RichText(
                 text: TextSpan(
-                  text: 'Don\'t have an account? ',
+                  text: 'Have an account? ',
                   style: Theme.of(context).textTheme.bodySmall,
                   children: [
                     TextSpan(
-                      text: 'Sign up',
+                      text: 'Login',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: AppColors.secondaryColor,
                           ),
