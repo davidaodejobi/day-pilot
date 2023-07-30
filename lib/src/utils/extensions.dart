@@ -99,3 +99,12 @@ extension CustomSizedBox on num {
     );
   }
 }
+
+extension FilePaths on String {
+  String get svg => 'assets/svgs/$this.svg';
+  String get png => 'assets/images/$this.png';
+  String get jpg => 'assets/images/$this.jpg';
+  String get jpeg => 'assets/images/$this.jpeg';
+  String get gif => 'assets/images/$this.gif';
+  String get webp => 'assets/lotties/$this.json';
+}
