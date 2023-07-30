@@ -1,5 +1,6 @@
 import 'package:day_pilot/src/common_widgets/custom_elevated_button.dart';
 import 'package:day_pilot/src/common_widgets/custom_textfield.dart';
+import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -15,13 +16,11 @@ class LoginScreen extends HookConsumerWidget {
     final passwordController = useTextEditingController();
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              //calculate the height of the status bar
-              // MediaQuery.of(context).padding.top.hi,
-              SingleChildScrollView(
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Column(
                   children: [
                     40.hi,
@@ -51,7 +50,25 @@ class LoginScreen extends HookConsumerWidget {
                       hintText: 'Password',
                       textObscured: true,
                     ),
-                    40.hi,
+                    8.hi,
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: InkWell(
+                        onTap: () {},
+                        overlayColor: MaterialStateProperty.all(
+                          Colors.transparent,
+                        ),
+                        child: Text(
+                          'Forgot password?',
+                          style: Theme.of(context).textTheme.bodyMedium,
+                        ).padOnly(
+                          top: 8.h,
+                          bottom: 8.h,
+                          left: 8.w,
+                        ),
+                      ),
+                    ),
+                    32.hi,
                     CustomElevatedButton(
                       text: 'Login',
                       onPressed: () {},
@@ -59,8 +76,28 @@ class LoginScreen extends HookConsumerWidget {
                   ],
                 ),
               ),
-            ],
-          ),
+            ),
+            InkWell(
+              onTap: () {},
+              overlayColor: MaterialStateProperty.all(
+                Colors.transparent,
+              ),
+              child: RichText(
+                text: TextSpan(
+                  text: 'Don\'t have an account? ',
+                  style: Theme.of(context).textTheme.bodySmall,
+                  children: [
+                    TextSpan(
+                      text: 'Sign up',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: AppColors.secondaryColor,
+                          ),
+                    ),
+                  ],
+                ),
+              ).padAll(16),
+            ),
+          ],
         ),
       ),
     );

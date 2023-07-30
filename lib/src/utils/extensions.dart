@@ -66,6 +66,23 @@ extension PaddingExtension on Widget {
       child: this,
     );
   }
+
+  Widget padOnly({
+    double? left,
+    double? right,
+    double? top,
+    double? bottom,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: left?.w ?? 0,
+        right: right?.w ?? 0,
+        top: top?.h ?? 0,
+        bottom: bottom?.h ?? 0,
+      ),
+      child: this,
+    );
+  }
 }
 
 extension CustomSizedBox on num {
