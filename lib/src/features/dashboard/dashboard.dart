@@ -28,53 +28,219 @@ class DashBoard extends HookConsumerWidget {
           children: [
             Expanded(
               child: SizedBox(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Placeholder(
-                      fallbackHeight: 100,
-                      fallbackWidth: 100,
-                    ),
-                    16.hi,
-                    Text(
-                      "What do you want to do today?",
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontWeight: FontWeight.w500,
+                child: false
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Placeholder(
+                            fallbackHeight: 100,
+                            fallbackWidth: 100,
                           ),
-                    ),
-                    12.hi,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "Tap",
-                          style:
-                              Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                        ),
-                        4.wi,
-                        CircleAvatar(
-                          radius: 10.r,
-                          backgroundColor: AppColors.primaryColor,
-                          child: Icon(
-                            Icons.add,
-                            color: Colors.white,
-                            size: 16.r,
+                          16.hi,
+                          Text(
+                            "What do you want to do today?",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
-                        ),
-                        4.wi,
-                        Text(
-                          "to add a new task",
-                          style:
-                              Theme.of(context).textTheme.titleMedium!.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                          12.hi,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Tap",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                              ),
+                              4.wi,
+                              CircleAvatar(
+                                radius: 10.r,
+                                backgroundColor: AppColors.primaryColor,
+                                child: Icon(
+                                  Icons.add,
+                                  color: Colors.white,
+                                  size: 16.r,
+                                ),
+                              ),
+                              4.wi,
+                              Text(
+                                "to add a new task",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                              ),
+                            ],
+                          )
+                        ],
+                      )
+                    : ListView(
+                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 16.h),
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16.w, vertical: 8.h),
+                            decoration: BoxDecoration(
+                              color: AppColors.scaffoldBackgroundColor,
+                              borderRadius: BorderRadius.circular(10),
+                              //shadow
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.1),
+                                  spreadRadius: 2,
+                                  blurRadius: 3,
+                                  offset: const Offset(0, 2),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  'Learn DSA (Dynamic Programming) and solve 2 problems',
+                                ),
+                                12.hi,
+                                Wrap(
+                                  spacing: 8.w,
+                                  runSpacing: 8.h,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 4.h),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.primaryColor
+                                            .withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: RichText(
+                                        text: TextSpan(
+                                          text: 'Deadline: ',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .titleSmall!
+                                              .copyWith(
+                                                fontSize: 12.sp,
+                                                color: AppColors.textColor,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                              text: '11:59 PM',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .copyWith(
+                                                    fontSize: 12.sp,
+                                                    color:
+                                                        AppColors.primaryColor,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                          horizontal: 8.w, vertical: 4.h),
+                                      decoration: BoxDecoration(
+                                        color: AppColors.greyTextColor
+                                            .withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Text(
+                                            'Prioroty: ',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall!
+                                                .copyWith(
+                                                  color: AppColors.textColor,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                          ),
+                                          SvgPicture.asset(
+                                            "p-low".svg,
+                                            height: 12.h,
+                                            width: 12.w,
+                                            color: AppColors.primaryColor,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Stack(
+                                      children: [
+                                        Container(
+                                          padding: EdgeInsets.symmetric(
+                                              horizontal: 8.w, vertical: 4.h),
+                                          decoration: BoxDecoration(
+                                            color: AppColors.greyTextColor
+                                                .withOpacity(0.1),
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                          child: Text(
+                                            '                                   ',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall!
+                                                .copyWith(
+                                                  color: AppColors.textColor,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                          ),
+                                        ),
+                                        RichText(
+                                          text: TextSpan(
+                                            text: 'Alloted time: ',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall!
+                                                .copyWith(
+                                                  fontSize: 12.sp,
+                                                  color: AppColors.textColor,
+                                                  fontWeight: FontWeight.w400,
+                                                ),
+                                            children: <TextSpan>[
+                                              TextSpan(
+                                                text: '2 hours',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .titleSmall!
+                                                    .copyWith(
+                                                      fontSize: 12.sp,
+                                                      color: AppColors
+                                                          .primaryColor,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                12.hi,
+                                // Container
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
               ),
             ),
             SizedBox(
