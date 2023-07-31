@@ -79,6 +79,9 @@ class AppTheme with ChangeNotifier {
         color: AppColors.scaffoldBackgroundColor,
       ),
       textTheme: _buildPoppinsTextTheme(),
+      bottomSheetTheme: const BottomSheetThemeData(
+        backgroundColor: AppColors.scaffoldBackgroundColor,
+      ),
     );
   }
 }

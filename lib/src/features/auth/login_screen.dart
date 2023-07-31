@@ -5,6 +5,7 @@ import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:day_pilot/src/features/auth/forgot_password.dart';
 import 'package:day_pilot/src/features/auth/login/finger_print_body.dart';
 import 'package:day_pilot/src/features/auth/signup_screen.dart';
+import 'package:day_pilot/src/features/dashboard/dashboard.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -89,7 +90,12 @@ class LoginScreen extends HookConsumerWidget {
                     32.hi,
                     CustomElevatedButton(
                       text: 'Login',
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DashBoard(),
+                        ),
+                      ),
                     ),
                   ],
                 ),

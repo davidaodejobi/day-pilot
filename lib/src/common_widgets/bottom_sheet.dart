@@ -10,8 +10,10 @@ bottomSheet(
   showModalBottomSheet(
     context: context,
     isScrollControlled: true,
+    barrierColor: Colors.black.withOpacity(0.5),
     builder: (context) {
-      return SizedBox(
+      return Container(
+        color: AppColors.scaffoldBackgroundColor,
         width: double.infinity,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -38,6 +40,5 @@ bottomSheet(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(10.0),
     ),
-    backgroundColor: Colors.white,
   );
 }
