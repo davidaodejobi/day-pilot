@@ -4,13 +4,18 @@ import 'package:day_pilot/src/constants/app_colors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void mainCommon() {
   WidgetsFlutterBinding.ensureInitialized();
   // turn off the # in the URLs on the web
   // usePathUrlStrategy();
   registerErrorHandlers();
-  runApp(const DayPilot());
+  runApp(
+    const ProviderScope(
+      child: DayPilot(),
+    ),
+  );
 }
 
 class DayPilot extends StatelessWidget {
