@@ -15,8 +15,8 @@ class OnbaordButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 311.w,
-      height: 50.h,
+      width: .8.sw,
+      height: 40.h,
       decoration: ShapeDecoration(
         color: const Color(0xFFFAFAFA),
         shape: RoundedRectangleBorder(
@@ -37,12 +37,15 @@ class OnbaordButton extends StatelessWidget {
             child: GestureDetector(
               onTap: onLoginPressed,
               child: Container(
-                height: 50.h,
+                height: 40.h,
                 padding: const EdgeInsets.all(16),
                 decoration: ShapeDecoration(
                   color: Colors.white,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(width: 0.50, color: Colors.white),
+                    side: const BorderSide(
+                      width: 0.50,
+                      color: Colors.white,
+                    ),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   shadows: const [
@@ -54,19 +57,13 @@ class OnbaordButton extends StatelessWidget {
                     )
                   ],
                 ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Login',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                  ],
+                child: Text(
+                  'Login',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.2,
+                      ),
                 ),
               ),
             ),
@@ -75,21 +72,15 @@ class OnbaordButton extends StatelessWidget {
             child: GestureDetector(
               onTap: onSignUpPressed,
               child: Container(
-                height: 50.h,
+                height: 40.h,
                 padding: const EdgeInsets.all(16),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Sign Up',
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                            fontWeight: FontWeight.w500,
-                          ),
-                    ),
-                  ],
+                child: Text(
+                  'Sign Up',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontWeight: FontWeight.w500,
+                        height: 1.2,
+                      ),
                 ),
               ),
             ),

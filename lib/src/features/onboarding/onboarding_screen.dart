@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:day_pilot/src/constants/app_constants.dart';
 import 'package:day_pilot/src/features/auth/login_screen.dart';
 import 'package:day_pilot/src/features/auth/signup_screen.dart';
+import 'package:day_pilot/src/features/dashboard/dashboard.dart';
 import 'package:day_pilot/src/features/onboarding/onboard_button.dart';
 import 'package:day_pilot/src/features/onboarding/onboard_card.dart';
 import 'package:day_pilot/src/utils/extensions.dart';
@@ -16,7 +16,7 @@ class OnbaordingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: AppConstants.kScaffoldGradient,
+        // decoration: AppConstants.kScaffoldGradient,
         child: Column(
           children: [
             .05.sh.hi,
@@ -43,7 +43,7 @@ class OnbaordingScreen extends StatelessWidget {
                 children: [
                   Text(
                     'Track your daily tasks',
-                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                           fontWeight: FontWeight.w700,
                         ),
                   ),
@@ -51,15 +51,14 @@ class OnbaordingScreen extends StatelessWidget {
                   Text(
                     'Duis leo. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Fusce a quam. Nullam sagittis.',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           fontWeight: FontWeight.w400,
-                          fontSize: 16.sp,
                         ),
                   ),
                 ],
               ),
             ).padHorizontal(25),
-            .1.sh.hi,
+            .07.sh.hi,
             OnbaordButton(
               onLoginPressed: () => Navigator.push(
                 context,
@@ -71,6 +70,35 @@ class OnbaordingScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => const SignUpScreen(),
+                ),
+              ),
+            ),
+            10.hi,
+            GestureDetector(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const DashBoard(),
+                ),
+              ),
+              child: SizedBox(
+                height: 40.h,
+                width: .8.sw,
+                child: Container(
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.white,
+                      width: 2,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Text(
+                    'Skip',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
                 ),
               ),
             )
